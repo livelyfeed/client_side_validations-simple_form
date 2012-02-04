@@ -5,30 +5,28 @@ module ClientSideValidations
       def self.included(base)
         base.class_eval do
           def self.client_side_form_settings(options, form_helper)
+            #wrapper_object = ::SimpleForm.wrappers[options[:wrapper]] || ::SimpleForm.wrappers[:default]
+            wrapper_object = ::SimpleForm.wrappers[:bootstrap]
+            input_error = wrapper_object.find(:error).defaults
+            wrapper = wrapper_object.defaults
+
+            error_container_class = input_error[:class] # help-block
+            input_error_tag = input_error[:tag] # "span"
+            error_tag = wrapper[:class].join(" ") #clearfix
+            error_class = wrapper[:error_class] # error
+
             {
               :type => self.to_s,
-              :error_class => ::SimpleForm.error_class,
-              :error_tag => ::SimpleForm.error_tag,
-              :wrapper_error_class => ::SimpleForm.wrapper_error_class,
-              :wrapper_tag => ::SimpleForm.wrapper_tag
+              :error_class => [error_container_class, error_class].join(" ."),
+              :error_tag => input_error_tag,
+              :wrapper_error_class => error_class,
+              :wrapper_tag => ".#{error_tag}"
             }
           end
-          alias_method_chain :input, :client_side_validations
         end
-      end
-
-      def input_with_client_side_validations(attribute_name, options = {}, &block)
-        if options.key?(:validate)
-          options[:input_html] ||= {}
-          options[:input_html].merge!(:validate => options[:validate])
-          options.delete(:validate)
-        end
-
-        input_without_client_side_validations(attribute_name, options, &block)
-      end
-
-    end
-  end
-end
+      end # included
+    end # FormBuilder
+  end # SimpleForm
+end # ClientSideValidations
 
 SimpleForm::FormBuilder.send(:include, ClientSideValidations::SimpleForm::FormBuilder)

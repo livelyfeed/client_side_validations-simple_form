@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.0'
-gem 'simple_form', '~> 1.5.0'
-gem 'client_side_validations', '~> 3.2.0.beta.1'
+gem 'rails', '~> 3.2.1'
+gem 'simple_form'
+gem 'client_side_validations'
 gem 'mocha'
 gem 'rake'
 gem 'coffee-script'

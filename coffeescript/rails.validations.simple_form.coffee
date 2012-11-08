@@ -31,7 +31,6 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =
     settings.wrapper_success = "success"
 
     if element.data('valid') != false
-      alert('test')
       wrapper = element.closest(settings.wrapper_tag)
       wrapper.removeClass(settings.wrapper_success)
       wrapper.addClass(settings.wrapper_error_class)

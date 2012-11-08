@@ -1,6 +1,6 @@
 
 /*
-  Client Side Validations - SimpleForm - v1.5.0.beta.3
+  Client Side Validations - SimpleForm - v1.5.0.beta.4
   https://github.com/dockyard/client_side_validations-simple_form
 
   Copyright (c) 2012 DockYard, LLC
@@ -20,7 +20,6 @@
       settings.wrapper_error_class = "error";
       settings.wrapper_success = "success";
       if (element.data('valid') !== false) {
-        alert('test');
         wrapper = element.closest(settings.wrapper_tag);
         wrapper.removeClass(settings.wrapper_success);
         wrapper.addClass(settings.wrapper_error_class);

@@ -55,7 +55,7 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =
 
     wrapper = element.closest("#{settings.wrapper_tag}.#{settings.wrapper_error_class}")
     wrapper.removeClass(settings.wrapper_error_class)
-    wrapper.addClass(settings.wrapper_success)
+    # wrapper.addClass(settings.wrapper_success)
     errorElement = wrapper.find("#{settings.error_tag}.#{settings.error_class}")
 
     errorElement.remove()

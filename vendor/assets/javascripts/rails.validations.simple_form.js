@@ -1,6 +1,6 @@
 
 /*
-  Client Side Validations - SimpleForm - v1.5.0.beta.4
+  Client Side Validations - SimpleForm - v1.5.0.beta.5
   https://github.com/dockyard/client_side_validations-simple_form
 
   Copyright (c) 2012 DockYard, LLC
@@ -43,7 +43,6 @@
       settings.wrapper_success = "success";
       wrapper = element.closest("" + settings.wrapper_tag + "." + settings.wrapper_error_class);
       wrapper.removeClass(settings.wrapper_error_class);
-      wrapper.addClass(settings.wrapper_success);
       errorElement = wrapper.find("" + settings.error_tag + "." + settings.error_class);
       return errorElement.remove();
     }
